@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // var arr = [21, 12, 43, 234];
+        // for (var i = 0; i < arr.length; i++) {
+        //     // console.log(i)
+        //     (function(d) {
+        //         setTimeout(() => {
+        //             console.log(d)
+        //         }, 100);
+        //     })(i)
+        //     // setTimeout(() => {
+        //     //     console.log(i)
+        //     // }, 100);
+        // };
+        // for (let a = 0; a < arr.length; a++) {
+        //     setTimeout(() => {
+        //         console.log(a)
+        //     }, 100);
+        // }
+
+        // const a;
+        // a = '12';
+        // console.log(a);
+        // // Uncaught SyntaxError: Missing initializer in const declaration
+
+        // const arr = [];
+        // // console.log(arr);
+        // arr.push('张三');
+        // // arr.splice(0, 1);
+        // console.log(arr.splice(0, 1));
+
+
+
+        // 解构赋值
+        // let [s, b, c] = ['holle', 'word', '美好的', '一切']
+        // console.log(s, b, c);
+
+        // let [s, b, [c, d]] = ['holle', 'word', ['美好的', '一切']];
+        // console.log(s, b, c, d);
+        // let [s, b, d] = ['holle', 'word', ['美好的', '一切']];
+        // console.log(s, b, d[0], d[1])
+
+
+        let [a, ...b] = ['求和',
+            1, 2, 3, 4, 5, 6, 6, 7, 2
+        ];
+        b.reduce(function(a) {
+            console.log(a);
+        })
+        console.log(a, b);
+    </script>
+</body>
+
+</html>
