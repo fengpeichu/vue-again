@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <h1 id='demo'></h1>
     <script>
         // var arr = [21, 12, 43, 234];
         // for (var i = 0; i < arr.length; i++) {
@@ -51,13 +52,39 @@
         // console.log(s, b, d[0], d[1])
 
 
-        let [a, ...b] = ['求和',
-            1, 2, 3, 4, 5, 6, 6, 7, 2
-        ];
-        b.reduce(function(a) {
-            console.log(a);
+        // let [a, ...b] = ['求和',
+        //     1, 2, 3, 4, 5, 6, 6, 7, 2
+        // ];
+        // b.reduce(function(a) {
+        //     console.log(a);
+        // })
+        // console.log(a, b);
+        // var numbers = [65, 44, 12, 4];
+
+        // console.log(function getSum(total, num) {
+        //     return total + num;
+        // })
+
+        // function myFunction(item) {
+        //     numbers.reduce(getSum);
+        // }
+
+
+        // reduce()
+
+
+        // var arr = [1, 2, 3, 4, 5];
+        // sum = arr.reduce(function(prev, cur) {
+        //     console.log(prev, cur);
+        //     return prev + cur;
+        // })
+        // console.log(sum);
+
+        var aee = [12, 21, 11];
+        sum = aee.reduce(function(p, l) {
+            return p + l;
         })
-        console.log(a, b);
+        console.log(sum);
     </script>
 </body>
 
