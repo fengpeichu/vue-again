@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>find()方法的封装</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="name">
+            <p class="a2">
+                0377
+            </p>
+            8989
+        </div>
+        <p class="a1"></p>
+        1314
+    </div>
+    <script>
+        // let arr = [3, 23, 123, 556, 90];
+        // let add = arr.find(function(n) {
+        //         console.log(n)
+        //             // return n >= 90
+        //     }
+        //     // console.log(n)
+        // )
+        // console.log(add);
+
+        function find(a = document.body) {
+            let arr = [];
+
+            function again(a) {
+                // console.log(a.children)
+                Array.from(a.children).forEach(function(item) {
+                    arr.push(item);
+                    again(item);
+                })
+            };
+            again(a);
+            return arr;
+        }
+        console.log(find(document.querySelector('.wrapper')));
+        // find();
+    </script>
+</body>
+
+</html>
