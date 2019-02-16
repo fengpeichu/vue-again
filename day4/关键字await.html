@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // function timer(a) {
+        //     return new Promise((resolve) => {
+        //         setTimeout(() => {
+        //             resolve();
+        //         }, a)
+        //     })
+        // }
+        // let todolist = async function() {
+        //     let t1 = await timer(2000);
+        //     console.log(9)
+
+        //     let t2 = await timer(200);
+        //     console.log(4)
+        // }
+        // todolist();
+
+        let p1 = new Promise((resolve, reject) => {
+            resolve('成功');
+        })
+        let p2 = new Promise((resolve, reject) => {
+            resolve('success')
+        })
+        let p3 = Promise.reject('失败')
+
+        Promise.all([p1, p2]).then((result) => {
+            console.log(result); //['成功','success']
+        }).catch((error) => {
+            console.log(error)
+        })
+
+        Promise.all([p1, p3, p2]).then((result) => {
+            console.log(result)
+        }).catch((error) => {
+            console.log(error); //失败了
+        })
+    </script>
+</body>
+
+</html>

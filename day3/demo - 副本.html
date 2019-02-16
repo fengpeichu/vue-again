@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        
+        .wrap {
+            width: 400px;
+            height: 500px;
+            border: 1px solid #ccc;
+            margin: 45px auto;
+        }
+        
+        .ds {
+            width: 250px;
+            height: 32px;
+            margin: 10px 50px;
+        }
+        
+        .content {
+            width: 100%;
+            height: auto;
+        }
+        
+        p {
+            height: 34px;
+            line-height: 34px;
+            padding: 12px;
+        }
+        
+        li {
+            margin: 12px;
+            padding-left: 12px;
+            height: 32px;
+            border-left: 2px solid salmon;
+            line-height: 32px;
+        }
+        
+        b {
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <input type="text" class="ds">
+        <div class="content">
+            <p>进行中：<i>1</i> 已完成：<em>0</em></p>
+            <ul>
+                <li>
+                    <input type="checkbox" name="" id="">
+                    <span class="cont">睡觉</span>
+                    <b>x</b>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        var addIpt = document.querySelector('.ds');
+        var ul = document.querySelector('ul');
+        var i = document.querySelector('i');
+        var em = document.querySelector('em');
+        var sum = 0;
+        var check = Array.from(document.querySelectorAll('li>input'));
+        addIpt.onblur = function() {
+            var change = addIpt.value.trim();
+            var lis = document.createElement('li');
+            lis.innerHTML = `<input type="checkbox" name="" id="">
+                            <span class="cont">${change}</span>
+                             <b>x</b>`;
+
+            ul.appendChild(lis);
+            var count = Array.from(document.querySelectorAll('li'));
+            i.innerHTML = count.length;
+        }
+        ul.onclick = function(e) {
+            if (e.target.innerHTML === 'x') {
+                e.target.parentNode.remove();
+                // console.log(this)
+            }
+            if (e.target.nodeName == 'INPUT') {
+
+                if (e.target.checked) {
+                    sum++;
+                }
+                em.innerHTML = sum;
+
+            }
+            // console.log(e.target.nodeName)
+        }
+    </script>
+
+</body>
+
+</html>

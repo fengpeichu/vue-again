@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //     （1）、写一个按照下面方式调用都能正常工作的sum方法
+        // sum(2,3);   // Outpus 5;
+        // sum(2)(3);  // Outpus 5;
+
+        // function sum() {
+        //     var som = arguments;
+        //     if (som.length === 2) {
+        //         return som[0] + som[1];
+        //     } else {
+        //         return function(n) {
+        //             return som[0] + n
+        //         }
+        //     }
+        // };
+        let sum = (...n) => {
+            if (n.length === 2) {
+                return n[1] + n[0]
+            } else {
+                return (m) => m + n[0]
+            }
+        }
+        console.log(sum(2, 3)); // Outpus 5;
+        console.log(sum(2)(3)); // Outpus 5;
+    </script>
+</body>
+
+</html>

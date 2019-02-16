@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function mock(obj) {
+            let key = Object.keys(obj);
+            let value = Object.values(obj);
+            console.log(value);
+            key.map(function(item) {
+                chaiqu(item, value);
+            });
+
+            function chaiqu(i, z) {
+                let xz = i.split('|')[1];
+
+                if (xz.includes('-')) {
+                    // console.log(xz)
+                    let min = xz.split('-')[0];
+                    let max = xz.split('-')[1];
+                    for (let i = 0; i < rander(min, max); i++) {
+                        console.log(z[1])
+                    }
+                } else {
+                    console.log(xz)
+                }
+            }
+
+            function rander(min, max) {
+                return Math.floor(Math.random() * (max - min + 1) + min);
+            }
+        };
+        mock({
+            "name|9": 1,
+            "value|1-10": "*"
+        });
+
+
+
+        //练一练哦
+        //箭头函数
+        // let sum = (...n) => n.reduce((a, b) => a + b);
+        // console.log(sum(12, 232, 34, 2));
+
+
+        // name = "window"
+        // let obj = {
+        //     name: 'zs',
+        //     a: () => {
+        //         console.log(this.name)
+        //     },
+        //     a1() {
+        //         let d = () => {
+        //             console.log(this.name);
+        //         };
+        //         d();
+        //     }
+        // }
+        // obj.a();
+        // obj.a1();
+    </script>
+</body>
+
+</html>

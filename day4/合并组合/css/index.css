@@ -1,0 +1,9 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+p {
+    color: red;
+    border-bottom: 2px solid #ccc;
+}

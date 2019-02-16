@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // let a = [21, 212, 232, 345];
+        // // a.entries(key, value);
+        // for (let [key, v] of a.entries()) {
+        //     console.log(key, v);
+        // }
+
+        // //object.assign();
+
+        // let arr = [121, 234, 233, 3414, 501];
+        // for (let [k, v] of arr.entries()) {
+        //     console.log(k, v);
+        // }
+        // for (let k of arr.keys()) {
+        //     console.log(k);
+        // }
+        // for (let k of arr.values()) {
+        //     console.log(k);
+        // }
+
+        // //[1,2,[['a','b','c'],3],4,4,5]
+        // function insert(arr, index, val) {
+        //     console.log(arr[index]); // 3
+        //     console.log([val, arr[index]]); // ['a','b','c',3]
+        //     arr[index] = [val, arr[index]];
+        //     console.log(arr);
+        // }
+        // insert([1, 2, 3, 4, 4, 5], 2, ['a', 'b', 'c']);
+
+
+        // mock分装
+
+        function mock(obj) {
+            for (let i of Object.values(obj)) {
+                console.log(i)
+            }
+        };
+        mock({
+            "a|10": "1"
+        });
+
+
+        function mock(obj) {
+            for (let i of Object.entries(obj)) {
+                let ind = i[0].indexOf("|");
+                console.log(i)
+                if (ind != -1) {
+                    let num = i[0].slice(ind + 1) * 1;
+                    return i[1].repeat(num);
+                }
+            }
+        };
+        mock({
+            "a|10": "1"
+        });
+    </script>
+</body>
+
+</html>
