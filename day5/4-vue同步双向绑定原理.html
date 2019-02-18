@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="content">次数{cont}</div>
+    <button id="btn" type="button">+</button>
+    <script>
+        let div = document.querySelector('div')
+        let Text = div.innerText
+        let obj = {
+            cont: 10
+        }
+        let num = obj.cont
+
+        let re = new RegExp(eval('/\{' + Object.keys(obj)[0] + '\}/g'));
+
+        Object.defineProperty(obj, Object.keys(obj)[0], {
+            get() {
+                return num
+            },
+            set(val) {
+                num = val
+                console.log(num)
+                render(num)
+            }
+        });
+        render(obj.cont)
+        btn.onclick = function() {
+            obj.cont++;
+        }
+
+        function render(num) {
+            div.innerText = Text.replace(re, num)
+        }
+    </script>
+</body>
+
+</html>
