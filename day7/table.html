@@ -1,0 +1,102 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        
+        .wrap {
+            width: 200px;
+            height: 500px;
+            margin: 0 auto;
+        }
+        
+        .list {
+            width: 100%;
+            height: 30px;
+        }
+        
+        .list>li {
+            display: inline-block;
+            width: 60px;
+            height: 30px;
+            border: 1px solid #ccc;
+        }
+        
+        .move {
+            background: pink;
+        }
+        
+        .tab {
+            width: 100%;
+            height: 150px;
+            border: 1px solid #ccc;
+            /* overflow: hidden; */
+        }
+        
+        .tab>li {
+            width: 100%;
+            height: 150px;
+            border: 1px solid #00c;
+            display: none;
+        }
+        
+        .ws {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <ul class='list'>
+            <li class='move'>未使用</li>
+            <li>已使用</li>
+            <li>已过期</li>
+        </ul>
+        <ul class="tab">
+            <li class="ws">1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+    </div>
+    <script>
+        // var lis = [...document.querySelectorAll('.list>li')];
+        // var lis1 = [...document.querySelectorAll('.tab>li')];
+        for (let i = 0; i < lis.length; i++) {
+            lis[i].index = i;
+            lis[i].onclick = function() {
+                for (let j = 0; i < lis1.length; j++) {
+
+                }
+            }
+        }
+        // // document.querySelector('.list').onclick = function(e) {
+        // //     for (let i = 0; i < lis.length; i++) {
+        // //         lis[i].classList.remove('move')
+        // //         lis1[i].classList.remove('w')
+        // //     }
+        // //     e.target.classList.add('move');
+        // // }
+        // for (let i = 0; i < lis.length; i++) {
+        //     lis[i].index = i;
+        //     lis[i].onclick = function() {
+        //         for (let j = 0; j < lis1.length; j++) {
+        //             lis[j].className = '';
+        //             lis1[j].className = '';
+        //         }
+        //         this.className = 'move';
+        //         lis1[this.index].className = 'ws';
+        //     }
+        // }
+    </script>
+</body>
+
+</html>

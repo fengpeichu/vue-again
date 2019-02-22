@@ -1,0 +1,51 @@
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+.wrap {
+    width: 300px;
+    height: 250px;
+    background: red;
+}
+
+.top {
+    width: 300px;
+    height: 50px;
+    display: flex;
+}
+
+.top button {
+    flex: 1;
+    border: 0;
+    border-right: 1px solid white;
+    line-height: 50px;
+    text-align: center;
+    color: white;
+    background: skyblue;
+    outline: none;
+}
+
+.cont {
+    width: 300px;
+    height: 200px;
+    background: #ccc;
+    text-align: center;
+    line-height: 200px;
+}
+
+.top button.active {
+    color: red;
+    background: white;
+}
+
+.cont div {
+    display: none;
+}
+
+.cont div.active {
+    display: block;
+}

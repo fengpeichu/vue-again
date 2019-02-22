@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> V-MODEL</title>
+    <style>
+        .a1 {
+            width: 222px;
+            height: 222px;
+            background: orange;
+        }
+        
+        [v-cloak] {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="li">
+        <div v-cloak>
+
+
+            <!-- {{name}}
+        <button @click="open = !open">click</button>
+        <button @click="alitter('cfp')">脸谱</button>
+        <div class='a1' v-show='open'></div>
+        <ul>
+            <li v-for="item in list"><a :href="item.url">{{item.name}}</a></li>
+        </ul> -->
+            <input type="text" placeholder="请输入价格" v-model='val'>
+            <input type="text" :value="vals" @input="vals=$event.target.value">
+            <select v-model="sex">
+            <option v-for="item in options" :value="item.title">{{item.title}}</option>
+        </select>
+            <button @click='add($event,"aa")'>添加</button>
+
+            <!--if判断-->
+            <!-- <p v-if="xc==='楚凤沛'">1610 </p>
+            <p v-else-if="xc==='1677'">一场笑话 </p>
+            <p v-else>还好吧</p> -->
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        //练习model的使用方法
+        new Vue({
+            el: '#li',
+            data: {
+                name: 'as',
+                open: true,
+                val: "",
+                vals: "",
+                sex: 1,
+                options: [{
+                    title: "女",
+                    value: 1
+                }, {
+                    title: '男',
+                    value: 2
+                }],
+                xc: '1677'
+                    // list: [{
+                    //     name: '百度',
+                    //     url: 'https://www.baidu.com/'
+                    // }, {
+                    //     name: 'GitHub',
+                    //     url: 'https://www.github.com/'
+                    // }]
+            },
+            methods: {
+                // alitter(str) {
+                //     alert(str)
+                // }
+                add(e, str) {
+                    alert(`您的姓名为：${this.val};您的性别为：${this.sex}`)
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        .wrap {
+            width: 300px;
+            height: 300px;
+            border: 1px solid #ccc;
+            margin: 0 auto;
+        }
+        
+        span {
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            border: 1px solid #ccc;
+            margin: 0 12px;
+        }
+        
+        li {
+            line-height: 30px;
+        }
+        
+        .active {
+            background: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <ul>
+            <li v-for="item in data"><span @click="chenck(item)" :class='{active:item.flag}'></span>{{item.title}}</li>
+        </ul>
+        <span @click="allC" :class='{active:allflag}'></span><b>全选</b>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el: '.wrap',
+            data: {
+                data: [{
+                    title: "你是谁？",
+                    flag: false
+                }, {
+                    title: "你想成为谁？",
+                    flag: false
+                }, {
+                    title: '你做到了什么位置？',
+                    flag: false
+                }],
+                allflag: false
+            },
+            methods: {
+                chenck(item) {
+                    item.flag = !item.flag
+                    this.allflag = this.data.every((item) => item.flag);
+                },
+                allC() {
+                    this.allflag = !this.allflag;
+                    this.data.map((item) => {
+                        item.flag = this.allflag;
+                    })
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

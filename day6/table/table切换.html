@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+    <div class="wrap wrap1">
+        <div class="top">
+            <button class="active">1</button>
+            <button>2</button>
+            <button>3</button>
+        </div>
+        <div class="cont">
+            <div class="active">内容1</div>
+            <div>内容2</div>
+            <div>内容3</div>
+        </div>
+    </div>
+    <!-- <div class="wrap wrap2">
+        <div class="top">
+            <button class="active">1</button>
+            <button>2</button>
+            <button>3</button>
+        </div>
+        <div class="cont">
+            <div class="active">内容1</div>
+            <div>内容2</div>
+            <div>内容3</div>
+        </div>
+    </div> -->
+    <script>
+        class Table {
+            constructor(options) {
+                this.options = options;
+                // console.log(this.options);
+                //父盒子节点
+                this.tableBox = document.querySelector(options.tablebox);
+                console.log(this.tableBox);
+                //顶部按钮
+                this.button = document.querySelector(options.top);
+                //中间内容部分
+                this.cont = document.querySelector(options.cont);
+                //class类名
+                this.classname = options.classname;
+                // console.log(this.className)
+                //调用方法
+                this.init();
+            }
+            init() {
+                    //调用点击事件
+                    this.addEvent();
+
+                }
+                //点击事件
+            addEvent() {
+                    //获取到所有的button按钮
+                    this.titletag = [...this.button.children];
+                    //内容的
+                    this.conttag = [...this.cont.children];
+                    //遍历
+                    this.titletag.forEach((item, i) => {
+                        item.onclick = () => {
+                            // 点击的时候 调用切换内容的方法  下标传过来
+                            this.change(i);
+                        }
+                    });
+                }
+                //切换内容
+            change(index) {
+                //获取到所有的button按钮
+                this.titletag = [...this.button.children];
+                //先删除
+                this.titletag.forEach((item, ind) => {
+                    item.classList.remove(this.classname);
+                    this.conttag[ind].classList.remove(this.classname);
+                });
+                //添加
+                this.titletag[index].classList.add(this.classname);
+                this.conttag[index].classList.add(this.classname);
+            }
+        }
+
+        new Table({
+                tablebox: '.wrap1',
+                top: '.top',
+                cont: '.cont',
+                classname: 'active'
+            })
+            // new Table({
+            //         tablebox: '.wrap2',
+            //         top: '.top',
+            //         cont: '.cont',
+            //         classname: 'active'
+            //     })
+            //继承
+        class NewTable extends Table {
+            constructor(options) {
+                //函数内容的 语法糖 调用父对象
+                super(options);
+                // //下标
+                // this.index = options.index;
+                // //时间
+                // this.timer = options.timer;
+                // //定时器
+                // this.time = null;
+                // //调用自动播放方法
+                // this.autoplay();
+                // this.stop()
+            }
+            autoplay() {
+                    console.log(this.options.timer)
+                    this.time = setInterval(() => {
+                        //下标++
+                        this.index++;
+                        //判断
+                        // this.index = this.index >= this.titletag.length ? 0 : this.index;
+                        this.index = this.index % this.titletag.length;
+                        // console.log(this.index)
+                        //调用
+                        this.change(this.index);
+                    }, this.timer)
+                }
+                //鼠标滑过
+            stop() {
+                this.tableBox.onmouseover = () => {
+                    clearInterval(this.time)
+                }
+                this.tableBox.onmouseout = () => {
+                    this.autoplay()
+                }
+            }
+        }
+        // new NewTable({
+        //     tablebox: '.wrap2',
+        //     top: '.top',
+        //     cont: '.cont',
+        //     classname: 'active',
+        //     index: 2,
+        //     timer: 1000
+        // })
+    </script>
+</body>
+
+</html>

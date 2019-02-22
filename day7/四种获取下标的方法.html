@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>tab</title>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        button {
+            background-color: #ccc;
+            width: 80px;
+            height: 30px;
+        }
+        
+        .btn-active {
+            background-color: yellow;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        
+        div {
+            width: 200px;
+            height: 200px;
+            font-size: 64px;
+            background-color: #0c0;
+            display: none;
+            color: #fff;
+        }
+        
+        .div-active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="btn-active">按钮1</button>
+    <button>按钮2</button>
+    <button>按钮3</button>
+    <button>按钮4</button>
+    <div class="div-active">1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <script type="text/javascript">
+        //1.先获取元素
+        var buttonList = document.getElementsByTagName("button");
+        var divList = document.getElementsByTagName("div");
+        console.log(buttonList, divList)
+            //2.添加事件
+        for (var i = 0; i < buttonList.length; i++) {
+            buttonList[i].index = i;
+            buttonList[i].onclick = function() {
+                for (var j = 0; j < buttonList.length; j++) {
+                    buttonList[j].className = "";
+                    divList[j].className = "";
+                }
+                this.className = "btn-active";
+                divList[this.index].className = "div-active";
+            }
+        }
+    </script>
+</body>
+
+</html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //     四种获取下标的方法
+        // <button>按钮</button>
+        // <button>按钮</button>
+        // <button>按钮</button>
+        // <button>按钮</button>
+        // <button>按钮</button>
+        // <button>按钮</button>
+        // 1
+        // 2
+        // 3
+        // 4
+        // 5
+        // 6
+        // 想要获取当前按钮对应的下标 
+        // 获取点击按钮：
+
+        // var btns = document.querySelectorAll("button");
+        // 1
+        // 使用let定义变量，使{}也能形成作用域ES6中的用法
+        // for(let i = 0;i < btns.length;i++){
+        //     btns[i].onclick = function(){
+        //         console.log(i);
+        //     }
+        // }
+        // 1
+        // 2
+        // 3
+        // 4
+        // 5
+        // 使用属性存储下标
+        // for (var i = 0;i<btns.length; i++){
+        //     btns[i].index = i;
+        //     btns[i].onclick = function(){
+        //         console.log(this.index)
+        //     }
+        // }
+        // 1
+        // 2
+        // 3
+        // 4
+        // 5
+        // 6
+        // 使用forEach便利
+        // btns.forEach(function(e,i){
+        // //e是元素，i是每个下标
+        //     btns[i].onclick = function(){
+        //     console.log(i);
+        // }
+        // })
+        // 1
+        // 2
+        // 3
+        // 4
+        // 5
+        // 6
+        // 使用闭包解决
+        // for(var i = 0;i<btns.length;i++){
+        //     (function(){
+        //     btn[i].click = function(){
+        //         console.log(i)
+        //     }
+        //     })();
+        // }
+        // --------------------- 
+        // 作者：alightman 
+        // 来源：CSDN 
+        // 原文：https://blog.csdn.net/alightman/article/details/78324786 
+        // 版权声明：本文为博主原创文章，转载请附上博文链接！
+    </script>
+</body>
+
+</html>

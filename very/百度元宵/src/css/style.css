@@ -1,0 +1,20 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+div {
+    width: 270px;
+    height: 200px;
+    background: url(../images/1.jpg) 0 0 no-repeat;
+    animation: effect 5s steps(44) infinite forwards;
+}
+
+@keyframes effect {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: -11880px 0
+    }
+}
